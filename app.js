@@ -191,8 +191,8 @@ const INITIAL_DATABASE = {
     { id: 5, date: "August 10, 2026", title: "Sub-Lieutenant Technical Course Opening", status: "Scheduled", description: "Academic induction and weapons handling briefing for incoming cohort officers." }
   ],
   contact: {
-    email: "info@lightgoldenrodyellow-hornet-176913.hostingersite.com\nnnsat@navy.mil.ng",
-    address: "NNSAT Kachia Base,\nKaduna State, Nigeria",
+    email: "nnsatweb@gmail.com",
+    address: "NNSAT Kachia, Kaduna State, Nigeria",
     focTitle: "FOC Naval Training Command",
     focText: "For administrative concerns beyond school operations, personnel should address requests to the Headquarters, Naval Training Command (NAVTRAC) Registry, Lagos."
   },
@@ -256,7 +256,7 @@ const INITIAL_DATABASE = {
   },
   footer: {
     desc: "The centre of excellence in naval armament engineering and Above Water Warfare technical training.",
-    social: "Navy training command"
+    social: "Naval training command"
   }
 };
 
