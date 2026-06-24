@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NNSAT | Nigerian Navy School of Armament Technology</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon from official NNSAT logo -->
+  <link rel="icon" type="image/png" href="https://lightgoldenrodyellow-hornet-176913.hostingersite.com/wp-content/uploads/2024/06/NNSAT-logo.png">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- STICKY HEADER -->
+    <header class="nav-header">
+      <div class="nav-wrapper">
+        <div class="brand-section">
+          <img src="https://lightgoldenrodyellow-hornet-176913.hostingersite.com/wp-content/uploads/2024/06/NNSAT-logo.png" alt="NNSAT Crest" class="nav-logo" onerror="this.style.display='none'">
+          <div class="brand-titles">
+            <span class="brand-name">NNSAT</span>
+          </div>
+        </div>
+
+        <nav>
+          <ul class="nav-links">
+            <li class="active"><a href="javascript:void(0)" onclick="switchView('home')" id="nav-lnk-home"></a></li>
+            <li><a href="javascript:void(0)" onclick="switchView('about')" id="nav-lnk-about"></a></li>
+            <li><a href="javascript:void(0)" onclick="switchView('academics')" id="nav-lnk-academics"></a></li>
+            <li><a href="javascript:void(0)" onclick="switchView('events-view')" id="nav-lnk-events"></a></li>
+            <li><a href="javascript:void(0)" onclick="switchView('news-portal')" id="nav-lnk-news"></a></li>
+            <li><a href="javascript:void(0)" onclick="switchView('gallery-view')" id="nav-lnk-gallery"></a></li>
+            <li><a href="javascript:void(0)" onclick="switchView('elibrary-view')" id="nav-lnk-elibrary"></a></li>
+            <li><a href="javascript:void(0)" onclick="switchView('contact-view')" id="nav-lnk-contact"></a></li>
+          </ul>
+        </nav>
+
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN PAGE VIEWS -->
+    <main>
+
+      <!-- 1. HOME VIEW -->
+      <section id="home" class="page-view active-view">
+        <div class="hero">
+          <div class="hero-overlay"></div>
+          <div class="hero-bg"></div>
+          <div class="hero-content">
+            <span class="hero-badge" id="hero-badge">Naval Training Command</span>
+            <h1 class="hero-title">Nigerian Navy School of Armament Technology</h1>
+            <p class="hero-subtitle">The centre of excellence in naval armament technology and Above Water Warfare technical training</p>
+            <div class="hero-btns">
+              <button class="btn btn-primary" onclick="switchView('about')" id="hero-btn-explore"></button>
+              <button class="btn btn-outline" onclick="switchView('academics')" id="hero-btn-courses"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATS GRID -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num" id="stat-officers">450+</div>
+            <div class="stat-label" id="stat-officers-label"></div>
+            <div class="stat-desc" id="stat-officers-desc"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-ratings">1,200+</div>
+            <div class="stat-label" id="stat-ratings-label"></div>
+            <div class="stat-desc" id="stat-ratings-desc"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-systems">30+</div>
+            <div class="stat-label" id="stat-systems-label"></div>
+            <div class="stat-desc" id="stat-systems-desc"></div>
+          </div>
+        </div>
+
+        <!-- COMMANDANT GREETING -->
+        <div class="section">
+          <div class="grid-2">
+            <div class="welcome-image-wrapper">
+              <img id="home-comm-img" src="" alt="Commandant Photo" class="welcome-image" onerror="this.src='https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600'">
+            </div>
+            <div>
+              <span class="section-tag" id="comm-sect-tag"></span>
+              <h2 class="section-title" style="font-family:var(--font-serif); margin-bottom:1.5rem;" id="comm-sect-title"></h2>
+              <p id="home-comm-text" style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:1.05rem; line-height:1.7;"></p>
+              <div class="signature-block">
+                <span class="sig-name" id="home-comm-name">Commodore Chikaji Aminu Isah</span>
+                <span class="sig-title" id="home-comm-title">Commandant, NNSAT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LATEST NEWS MODULE -->
+        <div class="section section-alt">
+          <div class="section-header">
+            <span class="section-tag" id="home-news-tag"></span>
+            <h2 class="section-title" id="hdr-home-news-title"></h2>
+            <p class="section-desc" id="hdr-home-news-desc"></p>
+          </div>
+          <div class="grid-3" id="home-news-grid">
+            <!-- Populated dynamically via app.js -->
+          </div>
+          <div style="text-align:center; margin-top:4rem;">
+            <button class="btn btn-outline" onclick="switchView('news-portal')" id="home-news-archive-btn"></button>
+          </div>
+        </div>
+
+        <!-- EVENTS CALENDAR PREVIEW -->
+        <div class="section">
+          <div class="grid-2">
+            <div>
+              <span class="section-tag" id="home-events-tag"></span>
+              <h2 class="section-title" style="font-family:var(--font-serif); margin-bottom:1.5rem;" id="hdr-home-events-title"></h2>
+              <p style="color:var(--text-secondary); margin-bottom:2rem;" id="hdr-home-events-desc"></p>
+              
+              <div id="home-events-preview-list">
+                <!-- Dynamically populated via app.js -->
+              </div>
+            </div>
+            <div style="background:var(--navy-mid); border:1px solid var(--border); border-radius:var(--radius-lg); padding:3rem; text-align:center;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold); margin-bottom:1.5rem;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <h3 style="font-family:var(--font-serif); font-size:1.5rem; color:var(--white); margin-bottom:1rem;" id="hdr-home-request-title"></h3>
+              <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:2rem;" id="hdr-home-request-desc"></p>
+              <button class="btn btn-primary" onclick="switchView('contact-view')">Contact Registry Office</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. ABOUT US VIEW -->
+      <section id="about" class="page-view">
+        <div class="section">
+          <div class="section-header">
+            <span class="section-tag" id="about-sect-tag"></span>
+            <h2 class="section-title" id="hdr-about-title"></h2>
+            <p class="section-desc" id="hdr-about-desc"></p>
+          </div>
+
+          <div class="grid-2" style="margin-bottom:6rem;">
+            <div>
+              <h3 style="font-family:var(--font-serif); font-size:1.8rem; color:var(--white); margin-bottom:1.5rem; border-left:3px solid var(--gold); padding-left:1rem;" id="hdr-about-history-title"></h3>
+              <p id="about-history-p" style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:1.05rem;"></p>
+            </div>
+            <div style="display:grid; gap:1.5rem;">
+              <div class="stat-card" style="text-align:left; border-top:none; border-left:3px solid var(--gold);">
+                <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--white); margin-bottom:0.5rem;" id="hdr-about-mission-title"></h4>
+                <p id="about-mission-p" style="font-size:0.95rem; color:var(--text-secondary);"></p>
+              </div>
+              <div class="stat-card" style="text-align:left; border-top:none; border-left:3px solid var(--gold);">
+                <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--white); margin-bottom:0.5rem;" id="hdr-about-vision-title"></h4>
+                <p id="about-vision-p" style="font-size:0.95rem; color:var(--text-secondary);"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- LEADERSHIP DIRECTORY -->
+          <div style="margin-bottom:6rem;">
+            <h3 style="font-family:var(--font-serif); font-size:1.8rem; color:var(--white); margin-bottom:3rem; text-align:center;" id="hdr-about-leadership-title"></h3>
+            <div class="grid-3" id="about-leadership-grid">
+              <!-- Populated dynamically via app.js -->
+            </div>
+          </div>
+
+          <!-- CAMPUS FACILITIES SHOWCASE -->
+          <div>
+            <h3 style="font-family:var(--font-serif); font-size:1.8rem; color:var(--white); margin-bottom:2rem; text-align:center;" id="hdr-about-facilities-title"></h3>
+            
+            <div class="facilities-tabs" id="facilities-tabs-container">
+              <!-- Dynamically populated via app.js -->
+            </div>
+
+            <div id="facilities-panels-container">
+              <!-- Dynamically populated via app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ACADEMICS VIEW -->
+      <section id="academics" class="page-view">
+        <div class="section">
+          <div class="section-header">
+            <span class="section-tag" id="acad-sect-tag"></span>
+            <h2 class="section-title" id="hdr-acad-title"></h2>
+            <p class="section-desc" id="hdr-acad-desc"></p>
+          </div>
+
+          <!-- OFFICERS SECT -->
+          <div style="margin-bottom:6rem;">
+            <div style="display:flex; align-items:center; gap:1.5rem; margin-bottom:3rem; border-bottom:1px solid var(--border); padding-bottom:1rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <h3 style="font-family:var(--font-serif); font-size:1.8rem; color:var(--white);" id="hdr-acad-officers-title"></h3>
+            </div>
+            <div class="grid-3" id="acad-officers-grid">
+              <!-- Populated dynamically via app.js -->
+            </div>
+          </div>
+
+          <!-- RATINGS SECT -->
+          <div>
+            <div style="display:flex; align-items:center; gap:1.5rem; margin-bottom:3rem; border-bottom:1px solid var(--border); padding-bottom:1rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
+              <h3 style="font-family:var(--font-serif); font-size:1.8rem; color:var(--white);" id="hdr-acad-ratings-title"></h3>
+            </div>
+            <div class="grid-3" id="acad-ratings-grid">
+              <!-- Populated dynamically via app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. EVENTS & TRAINING CALENDAR VIEW -->
+      <section id="events-view" class="page-view">
+        <div class="section">
+          <div class="section-header">
+            <span class="section-tag" id="events-sect-tag"></span>
+            <h2 class="section-title" id="hdr-events-title"></h2>
+            <p class="section-desc" id="hdr-events-desc"></p>
+          </div>
+
+          <div style="max-width:800px; margin:0 auto; display:grid; gap:2rem;" id="events-timeline-list">
+            <!-- Populated dynamically via app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. NEWS PORTAL VIEW -->
+      <section id="news-portal" class="page-view">
+        <div class="section">
+          <div class="section-header">
+            <span class="section-tag" id="news-sect-tag"></span>
+            <h2 class="section-title" id="hdr-news-title"></h2>
+            <p class="section-desc" id="hdr-news-desc"></p>
+          </div>
+
+          <!-- FILTERS & SEARCH -->
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; margin-bottom:3rem;">
+            <div class="facilities-tabs" style="border-bottom:none; padding-bottom:0; margin-bottom:0;">
+              <button class="tab-btn news-filter-btn active-tab" onclick="filterNews('All')">All Categories</button>
+              <button class="tab-btn news-filter-btn" onclick="filterNews('Events')">Events</button>
+              <button class="tab-btn news-filter-btn" onclick="filterNews('Visits')">Visits</button>
+              <button class="tab-btn news-filter-btn" onclick="filterNews('General')">General</button>
+            </div>
+            
+            <div class="search-input-group" style="width:300px;">
+              <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="news-search" placeholder="Search news logs..." class="search-input">
+            </div>
+          </div>
+
+          <!-- NEWS ARCHIVE GRID -->
+          <div class="grid-3" id="news-portal-grid">
+            <!-- Populated dynamically via app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. MEDIA GALLERY VIEW -->
+      <section id="gallery-view" class="page-view">
+        <div class="section">
+          <div class="section-header">
+            <span class="section-tag" id="gallery-sect-tag"></span>
+            <h2 class="section-title" id="hdr-gallery-title"></h2>
+            <p class="section-desc" id="hdr-gallery-desc"></p>
+          </div>
+
+          <!-- CATEGORY FILTERS -->
+          <div class="gallery-filters">
+            <button class="tab-btn gallery-filter-btn active-tab" onclick="filterGallery('all')">Show All</button>
+            <button class="tab-btn gallery-filter-btn" onclick="filterGallery('visits')">Visits</button>
+            <button class="tab-btn gallery-filter-btn" onclick="filterGallery('events')">Events</button>
+            <button class="tab-btn gallery-filter-btn" onclick="filterGallery('drills')">Drills</button>
+          </div>
+
+          <!-- ITEMS GRID -->
+          <div class="gallery-grid" id="gallery-items-grid">
+            <!-- Populated dynamically via app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. E-LIBRARY VIEW -->
+      <section id="elibrary-view" class="page-view">
+        <div class="section">
+          <div class="section-header">
+            <span class="section-tag" id="elibrary-sect-tag"></span>
+            <h2 class="section-title" id="hdr-elibrary-title"></h2>
+            <p class="section-desc" id="hdr-elibrary-desc"></p>
+          </div>
+
+          <!-- SEARCH -->
+          <div class="library-search-wrapper">
+            <div class="search-input-group">
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="lib-search" placeholder="Search reference manuals or virtual libraries..." class="search-input">
+            </div>
+          </div>
+
+          <!-- CATALOG GRID -->
+          <div class="library-grid" id="library-catalog-grid">
+            <!-- Populated dynamically via app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. CONTACT US VIEW -->
+      <section id="contact-view" class="page-view">
+        <div class="section">
+          <div class="section-header">
+            <span class="section-tag" id="contact-sect-tag"></span>
+            <h2 class="section-title" id="hdr-contact-title"></h2>
+            <p class="section-desc" id="hdr-contact-desc"></p>
+          </div>
+
+          <div class="grid-2">
+            <!-- CONTACT FORM -->
+            <div style="background:var(--navy-mid); border:1px solid var(--border); padding:3rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);">
+              <h3 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--white); margin-bottom:2rem; border-left:3px solid var(--gold); padding-left:1rem;" id="hdr-contact-form-title"></h3>
+              <form onsubmit="submitContactForm(); return false;" id="contact-form">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Full Name / Rank</label>
+                  <input type="text" id="contact-name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email or Phone</label>
+                  <input type="text" id="contact-email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-subject">Subject</label>
+                  <input type="text" id="contact-subject" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-msg">Message Content</label>
+                  <textarea id="contact-msg" class="form-input" style="height:150px; resize:vertical;" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Transmit Message</button>
+              </form>
+            </div>
+
+            <!-- CONTACT SIDEBAR -->
+            <div style="display:flex; flex-direction:column; gap:2.5rem; padding-left:2rem;">
+              <div>
+                <h4 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--white); margin-bottom:1rem;" id="hdr-contact-sidebar-title"></h4>
+                <div class="footer-contact" style="font-size:1.05rem;">
+                  <div class="contact-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span id="contact-sidebar-emails"></span>
+                  </div>
+                  <div class="contact-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span id="contact-sidebar-address"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="border-top:1px solid var(--border); padding-top:2.5rem;">
+                <h4 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--white); margin-bottom:1rem;" id="contact-sidebar-foc-title"></h4>
+                <p style="color:var(--text-secondary); font-size:0.95rem;" id="contact-sidebar-foc-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-wrapper">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo-row">
+              <img src="https://lightgoldenrodyellow-hornet-176913.hostingersite.com/wp-content/uploads/2024/06/NNSAT-logo.png" alt="NNSAT Logo" style="height:48px; width:auto;" onerror="this.style.display='none'">
+              <div class="brand-titles">
+                <span class="brand-name" style="font-size:1.3rem;">NNSAT</span>
+              </div>
+            </div>
+            <p class="footer-desc" id="footer-desc-text"></p>
+          </div>
+
+          <div>
+            <h3 class="footer-title" id="foot-hdr-nav"></h3>
+            <ul class="footer-links">
+              <li><a href="javascript:void(0)" onclick="switchView('home')" id="foot-lnk-home"></a></li>
+              <li><a href="javascript:void(0)" onclick="switchView('about')" id="foot-lnk-about"></a></li>
+              <li><a href="javascript:void(0)" onclick="switchView('academics')" id="foot-lnk-academics"></a></li>
+              <li><a href="javascript:void(0)" onclick="switchView('events-view')" id="foot-lnk-events"></a></li>
+              <li><a href="javascript:void(0)" onclick="switchView('news-portal')" id="foot-lnk-news"></a></li>
+              <li><a href="javascript:void(0)" onclick="switchView('gallery-view')" id="foot-lnk-gallery"></a></li>
+              <li><a href="javascript:void(0)" onclick="switchView('elibrary-view')" id="foot-lnk-elibrary"></a></li>
+              <li><a href="javascript:void(0)" onclick="switchView('contact-view')" id="foot-lnk-contact"></a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-title" id="foot-hdr-contact"></h3>
+            <div class="footer-contact">
+              <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span id="footer-emails"></span>
+              </div>
+              <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="footer-address"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 NNSAT | Nigerian Navy School of Armament Technology. All Rights Reserved.</p>
+          <div class="footer-socials">
+            <span style="font-size:0.75rem; text-transform:uppercase; font-weight:700; color:var(--text-muted);" id="footer-social-text"></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- IMAGES LIGHTBOX MODAL -->
+    <div id="gallery-lightbox" class="modal-backdrop" onclick="if(event.target.id === 'gallery-lightbox') closeLightbox()">
+      <div style="max-width:1000px; width:100%; text-align:center; position:relative;">
+        <button class="modal-close-btn" style="position:absolute; top:-3rem; right:0;" onclick="closeLightbox()">&times;</button>
+        <img class="lightbox-img" src="" alt="Lightbox Photo" style="max-width:100%; max-height:80vh; object-fit:contain; border-radius:var(--radius-md); border:1px solid var(--border); box-shadow:var(--shadow-md);">
+        <p class="lightbox-caption" style="color:var(--white); font-weight:600; margin-top:1rem; font-size:1.1rem;"></p>
+        
+        <!-- Navigation arrows -->
+        <button class="modal-close-btn" style="position:absolute; left:-4rem; top:50%; transform:translateY(-50%);" onclick="navigateLightbox(-1)">&larr;</button>
+        <button class="modal-close-btn" style="position:absolute; right:-4rem; top:50%; transform:translateY(-50%);" onclick="navigateLightbox(1)">&rarr;</button>
+      </div>
+    </div>
+
+    <!-- NEWS DETAIL OVERLAY MODAL -->
+    <div id="news-modal" class="modal-backdrop" onclick="if(event.target.id === 'news-modal') closeNewsModal()">
+      <div class="modal-content">
+        <button class="modal-close-btn" onclick="closeNewsModal()">&times;</button>
+        <div class="modal-body">
+          <img class="modal-img" src="" alt="Article Photo" onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600'">
+          <h2 class="modal-title"></h2>
+          <div class="modal-meta"></div>
+          <div class="modal-text"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYSTEM ALERTS TOAST -->
+    <div id="toast-alert" class="alert-toast">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span class="toast-message" style="font-weight:600; font-size:0.9rem;">Changes saved.</span>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
